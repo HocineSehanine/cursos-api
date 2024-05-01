@@ -1,0 +1,21 @@
+version: '3'
+
+networks:
+  cursos-api-network:
+    driver: bridge
+
+volumes:
+  prometheus_data:
+  grafana_data:
+
+services:
+  db-cursos-api:
+    container_name: db_cursos-api
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: db-cursos-api
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
